@@ -1,6 +1,3 @@
-# ead1-moonwake-working
-windows app. db in readme file
-
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
