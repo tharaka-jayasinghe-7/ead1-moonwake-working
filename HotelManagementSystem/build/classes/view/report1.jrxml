@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de0b53b7-62db-49ff-b795-cbb025782eba">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="32"/>
+	<subDataset name="dataset1" uuid="d56b2413-fda4-46b3-8688-ae1f9f48db9c"/>
+	<parameter name="Res_IDDDD" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+    c.customer_nic,
+    c.customer_name,
+    c.customer_address,
+    r.room_id,
+    r.room_type,
+    r.bed_type,
+    r.room_amount,
+    res.reservation_id,
+    res.checkin_date,
+    res.checkout_date,
+    res.reservation_amount
+FROM
+    tbl_reservation res
+JOIN
+    tbl_customer c ON res.customer_nic = c.customer_nic
+JOIN
+    tbl_room r ON res.room_id = r.room_id
+WHERE
+    res.reservation_id =$P{Res_IDDDD} ;]]>
+	</queryString>
+	<field name="customer_nic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="room_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="room_type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bed_type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="room_amount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="reservation_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="checkin_date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="checkout_date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="reservation_amount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="197" y="0" width="157" height="51" uuid="50da5927-8235-46af-8462-d3b4fcd83df9"/>
+				<imageExpression><![CDATA["/Users/tharaka/Downloads/B new.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="78" width="555" height="1" uuid="9675fee4-0175-4e7c-ad41-1ef911c1beaa"/>
+			</line>
+			<rectangle>
+				<reportElement x="0" y="67" width="555" height="12" backcolor="#907A4F" uuid="56532ac0-ae9c-4b53-bf91-70054e3c6416"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="645" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="53" width="100" height="20" uuid="dea62807-03e2-4ccd-97ee-efc12ab9001a"/>
+				<text><![CDATA[Customer NIC :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="53" width="100" height="20" uuid="f34d65ad-bbd2-41c9-84a1-f5d214043237"/>
+				<textFieldExpression><![CDATA[$F{customer_nic}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="73" width="100" height="20" uuid="0f5d2bd0-d2dd-4533-8152-d4ed26a0f548"/>
+				<text><![CDATA[Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="73" width="100" height="20" uuid="8b92bff1-9054-4bf3-8e97-214b8e7367e1"/>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="93" width="100" height="20" uuid="f2869556-c206-414b-a535-8c17ae9762a3"/>
+				<text><![CDATA[Address :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="93" width="100" height="20" uuid="b7dbc77d-8ae6-45ac-a365-626b383f9602"/>
+				<textFieldExpression><![CDATA[$F{customer_address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="153" width="100" height="20" uuid="5683344c-e03c-4d49-818d-616b726f5638"/>
+				<text><![CDATA[Room ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="153" width="100" height="20" uuid="c2a06db3-745a-41ca-8042-8bdcc365de0f"/>
+				<textFieldExpression><![CDATA[$F{room_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="173" width="100" height="20" uuid="374531a4-a3a7-449c-9f0f-41f3edd45be6"/>
+				<text><![CDATA[Room Type :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="173" width="100" height="20" uuid="cad69f44-bfba-4a63-85dc-7c15444ffc89"/>
+				<textFieldExpression><![CDATA[$F{room_type}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="193" width="100" height="20" uuid="9d124c37-7390-4262-affc-40559ddf8d64"/>
+				<text><![CDATA[Bed Type :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="193" width="100" height="20" uuid="bb771f76-d75b-4d42-8075-3fa42258a0c3"/>
+				<textFieldExpression><![CDATA[$F{bed_type}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="213" width="129" height="20" uuid="bbcf4ff3-d799-4880-9cc1-9fd0cb2ff33a"/>
+				<text><![CDATA[Room amount per day : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="213" width="100" height="20" uuid="14633341-8a4a-4f18-afc9-19cd28439db8"/>
+				<textFieldExpression><![CDATA[$F{room_amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="33" width="100" height="20" uuid="6ca1549a-bb34-45c5-8a45-30f8a383035c"/>
+				<text><![CDATA[Reservation ID :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="113" width="100" height="20" uuid="40744a09-98e3-4a72-9055-065b09d3a0bc"/>
+				<text><![CDATA[Checkin Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="113" width="100" height="20" uuid="3aead8f4-a64f-4856-bd21-e97db7943195"/>
+				<textFieldExpression><![CDATA[$F{checkin_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="133" width="100" height="20" uuid="78faf637-13d4-47c5-8b2c-14f713d8e84a"/>
+				<text><![CDATA[Checkout Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="133" width="100" height="20" uuid="4eb999dc-8dc3-4807-a8e3-976ee3df24db"/>
+				<textFieldExpression><![CDATA[$F{checkout_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="257" width="100" height="20" uuid="fdc0ed14-0b4f-41f1-8133-f0c2187c26eb"/>
+				<text><![CDATA[Full amount :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="257" width="100" height="20" uuid="e73199e1-2cb9-45cd-827b-042e14dc32f8"/>
+				<textFieldExpression><![CDATA[$F{reservation_amount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="132" y="256" width="100" height="1" uuid="bec5fa55-9685-4451-bac4-50fd72c0c028"/>
+			</line>
+			<line>
+				<reportElement x="132" y="277" width="100" height="1" uuid="dadedf53-11ad-477c-a55a-c9bf2e03072b"/>
+			</line>
+			<line>
+				<reportElement x="132" y="281" width="100" height="1" uuid="e884ff66-295e-4658-9fe8-a6df5c80100f"/>
+			</line>
+			<rectangle>
+				<reportElement x="0" y="602" width="555" height="43" backcolor="#907A4F" uuid="e6ca1fdd-f971-443c-9f9f-1cfd03b218a1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="29" y="620" width="100" height="20" forecolor="#FFFFFF" uuid="efe4f6ca-8c0b-429c-a9b4-356dd75238e9"/>
+				<text><![CDATA[Tel - 0114678543]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="620" width="157" height="20" forecolor="#FFFFFF" uuid="394e0ca3-7d9a-4cc5-924f-cc3a9eedd1e4"/>
+				<text><![CDATA[Web - www.moonwake.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="620" width="149" height="20" forecolor="#FFFFFF" uuid="642311ec-e3b8-42c7-84c0-ba6cb45d58da"/>
+				<text><![CDATA[Email - info@moonwake.com]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="33" width="100" height="20" uuid="578c4dad-a3d6-47b9-8e0f-b56f0a085383"/>
+				<textFieldExpression><![CDATA[$P{Res_IDDDD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="6" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="5" splitType="Stretch"/>
+	</summary>
+</jasperReport>
